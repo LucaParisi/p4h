@@ -94,10 +94,6 @@ class NetCat:
 					print(f'Server killed {e}')
 					self.socket.close()
 					sys.exit()
-		else:
-			print('Invalid start')
-			self.socket.close()
-			sys.exit()
 
 def execute(cmd: str) -> str:
 	cmd = cmd.strip()
