@@ -56,7 +56,7 @@ class NetCat:
 			client_socket, _ = self.socket.accept()
 			client_thread = threading.Thread(
 				target=self.handle,
-				args=(client_socket)
+				args=(client_socket,)
 			)
 			client_thread.start()
 
