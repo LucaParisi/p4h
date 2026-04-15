@@ -94,11 +94,10 @@ class NetCat:
 					print(f'Server killed {e}')
 					self.socket.close()
 					sys.exit()
-
-
-
-
-
+		else:
+			print('Invalid start')
+			self.socket.close()
+			sys.exit()
 
 def execute(cmd: str) -> str:
 	cmd = cmd.strip()
@@ -108,8 +107,7 @@ def execute(cmd: str) -> str:
 	output = subprocess.check_output(shlex.split(cmd), stderr=subprocess.STDOUT)
 	return output.decode()
 
-
-if __name__ == '__main__':
+def main():
 	parser = argparse.ArgumentParser(
 		description="BHP Net Tool",
 		formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -132,3 +130,6 @@ if __name__ == '__main__':
 		buffer = sys.stdin.read()
 	nc = NetCat(args, buffer.encode())
 	nc.run()
+
+if __name__ == '__main__':
+	main()
